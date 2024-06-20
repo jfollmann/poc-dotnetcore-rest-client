@@ -14,23 +14,23 @@ class Program
 
     IHttpClient httpClient = new RestSharpClient("https://jsonplaceholder.typicode.com");
 
-    var resultGet = httpClient.Get<List<Todo>>("/todos");
-    var resultPost = httpClient.Post<Todo>("/todos", new Todo { UserId = 90, Title = "Sample 999", Completed = true });
-    var resultPut = httpClient.Put<Todo>("/todos/1", new { Id = 1, Title = "Updated", Completed = true });
-    var resultDelete = httpClient.Delete<Todo>("/todos/201");
+    httpClient.Get<List<Todo>>("/todos");
+    httpClient.Post<Todo>("/todos", new Todo { UserId = 90, Title = "Sample 999", Completed = true });
+    httpClient.Put<Todo>("/todos/1", new { Id = 1, Title = "Updated", Completed = true });
+    httpClient.Delete<Todo>("/todos/201");
 
-    Console.WriteLine("------ Main Logs ------");
-    Console.WriteLine("[GET Result]");
-    foreach (var item in resultGet) 
-      WriteItem(item);
+    // Console.WriteLine("------ Main Logs ------");
+    // Console.WriteLine("[GET Result]");
+    // foreach (var item in resultGet) 
+    //   WriteItem(item);
 
-    Console.WriteLine("[POST Result]");
-    WriteItem(resultPost);
+    // Console.WriteLine("[POST Result]");
+    // WriteItem(resultPost);
 
-    Console.WriteLine("[PUT Result]");
-    WriteItem(resultPut);
+    // Console.WriteLine("[PUT Result]");
+    // WriteItem(resultPut);
 
-    Console.WriteLine("[DELETE Result]");
-    WriteItem(resultDelete);
+    // Console.WriteLine("[DELETE Result]");
+    // WriteItem(resultDelete);
   }
 }
